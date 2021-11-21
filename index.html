@@ -4,14 +4,45 @@
 
 <h1>Hello FUCKER</h1>
 
-<script>window.location.replace("请假外出、返校权限查询通行码.html")</script>
+<!-- <script>window.location.replace("请假外出、返校权限查询通行码.html")</script> -->
 
-<!-- <button type="button"
+<button type="button"
 onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button> -->
+Click me to display Date and Time.</button>
 
 <p id="demo"></p>
+<div id="timeShow"></div>
+<script type="text/javascript">
+    var t = null;
 
+    function time() {
+        dt = new Date();
+        var y = dt.getFullYear();
+        var M = dt.getMonth() + 1;
+        var d = dt.getDate();
+        var h = dt.getHours();
+        var m = dt.getMinutes();
+        var s = dt.getSeconds();
+        M=checkTime(M);
+        d=checkTime(d);
+        h=checkTime(h);
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById("timeShow").innerHTML = "当前时间：" + y + "-" + M + "-" + d + " " + h + ":" + m + ":" + s;
+        t = setTimeout(time, 1000);
+    }
+
+    window.onload = function () {
+        time()
+    }
+    
+    function checkTime(i){
+    if(i<10){
+        i="0"+i;
+    }
+    return i;
+}
+</script>
 </body>
 </html> 
 
